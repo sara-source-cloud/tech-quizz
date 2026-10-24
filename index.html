@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#00021b">
+  <title>Tech Quizz</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="scene">
+    <div class="borne">
+      <!-- 1. Écran de démarrage -->
+      <section id="ecran-accueil" class="ecran">
+        <h1 class="sr-only">Tech Quizz</h1>
+        <div class="logo-bloc">
+          <img class="logo" src="images/logo.jpg" alt="Tech Quizz, un paquet de données souriant">
+        </div>
+        <div class="accueil-actions">
+          <p class="pitch">Tu es un petit paquet de données. Traverse le réseau sans te cogner.</p>
+          <button id="bouton-jouer" class="bouton" type="button">Jouer</button>
+          <p class="aide">Ordinateur&nbsp;: flèches gauche et droite.<br>Téléphone&nbsp;: les boutons en bas.</p>
+        </div>
+      </section>
+
+      <!-- 2. La partie -->
+      <section id="ecran-jeu" class="ecran">
+        <header class="hud">
+          <p id="vies" aria-live="polite" aria-atomic="true">♥ ♥ ♥</p>
+          <p class="marque"><span class="mot-tech">TECH</span> <span class="mot-quizz">QUIZZ</span></p>
+          <p class="score-boite">Score <span id="score">00000</span></p>
+        </header>
+
+        <div id="zone-jeu">
+          <p id="banniere" class="banniere" aria-live="polite"></p>
+          <!-- Le joueur. Le cube est le vrai paquet ; la flèche est juste un décor. -->
+          <div id="joueur">
+            <div class="corps">
+              <span class="dessus"></span>
+              <span class="oeil gauche"></span>
+              <span class="oeil droite"></span>
+              <span class="joue gauche"></span>
+              <span class="joue droite"></span>
+              <span class="sourire"></span>
+            </div>
+            <span class="fleche" aria-hidden="true"></span>
+          </div>
+        </div>
+
+        <div class="controles">
+          <button id="bouton-gauche" type="button">◀ Gauche</button>
+          <button id="bouton-droite" type="button">Droite ▶</button>
+        </div>
+      </section>
+
+      <!-- Affiché quand les vies tombent à 0, pour pouvoir retester.
+           Le meilleur score sera ajouté à l'étape « game over ». -->
+      <section id="ecran-fin" class="ecran cache">
+        <div class="carte-fin">
+          <p class="mini">Connexion interrompue</p>
+          <h2 tabindex="-1">Paquet perdu&nbsp;!</h2>
+          <p id="texte-fin"></p>
+          <p class="ligne-score">Score <strong id="score-final">0</strong></p>
+          <button id="bouton-rejouer" class="bouton" type="button">Rejouer</button>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <noscript>
+    <p class="noscript">Active JavaScript pour jouer à Tech Quizz.</p>
+  </noscript>
+
+  <!-- questions.js est vide pour l'instant : le quiz arrive à l'étape suivante. -->
+  <script src="questions.js"></script>
+  <script src="game.js"></script>
+</body>
+</html>
